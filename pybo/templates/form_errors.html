@@ -1,0 +1,22 @@
+<!-- [파일명: projects/myproject/pybo/templates/form_errors.html] -->
+
+<!-- 필드오류 : validators 검증에 실패한 경우 표시 -->
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+    {% for field, errors in form.errors.items() %}
+    <strong>{{ form[field].label }}</strong>
+    <ul>
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- flash 오류 : '이미 존재하는 사용자...' 같은 로직에 의해 표시 -->
+{% for message in get_flashed_messages() %}
+<div class="alert alert-danger" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
