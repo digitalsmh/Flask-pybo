@@ -11,8 +11,6 @@ pip install flask-markdown
 
 # [DB] 관련
 
-# [DB] reset
-
 del pybo.db      # 데이터베이스 파일 삭제
 
 flask db init    # 데이터베이스 초기화
