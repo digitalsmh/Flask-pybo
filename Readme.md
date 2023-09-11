@@ -12,7 +12,7 @@ pip install flask-wtf
 pip install email_validator   
 pip install flask-markdown   
 
-# [DB] 관련
+# DB 관련
 
 del pybo.db      # 데이터베이스 파일 삭제    
 flask db init    # 데이터베이스 초기화   
