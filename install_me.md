@@ -1,6 +1,7 @@
 # [Flask 환경 변수](https://coding-groot.tistory.com/138)
 
-set FLASK_APP=pybo    # 'pybo' 
+set FLASK_APP=pybo    # 'pybo'    
+
 set FLASK_DEBUG=true
 
 flask run
