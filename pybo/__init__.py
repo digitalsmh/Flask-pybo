@@ -56,27 +56,3 @@ def create_app():
     Markdown(app, extensions=['nl2br', 'fenced_code'])
 
     return app
-
-'''
-def create_app(config_filename):
-    app = Flask(__name__)
-    app.config.from_pyfile(config_filename)
-
-    from yourapplication.views.admin import admin
-    from yourapplication.views.frontend import frontend
-    app.register_blueprint(admin)
-    app.register_blueprint(frontend)
-
-    return app
-''' 
-
-''' finel backup
-def create_app():
-    app = Flask(__name__)
-
-    @app.route('/')
-    def hello_pybo():
-        return 'Hello, Pybo!'
-
-    return app
-'''    
