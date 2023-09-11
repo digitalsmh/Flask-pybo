@@ -7,10 +7,10 @@ set FLASK_DEBUG=true
 flask run
 
 # Lib. 설치  
-pip install flask-migrate #  ORM 라이브러리
-pip install flask-wtf
-pip install email_validator
-pip install flask-markdown
+pip install flask-migrate #  ORM 라이브러리   
+pip install flask-wtf   
+pip install email_validator   
+pip install flask-markdown   
 
 # [DB] 관련
 
