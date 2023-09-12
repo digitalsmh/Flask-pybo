@@ -26,8 +26,12 @@ flask db downgrade # 이전 버전으로 DB downgrade
 - [X] DB 현재 시점의 리비전 : flask db current 
 
 - 현재 리비전을 최종 리비전으로 변경하기 : flask db stamp heads
+<br>
+<br>
 
-# 가상환경 구성
+# 서버 구축 절차
+
+## 1. 가상환경 구성
 
 sudo apt install python3-venv
 
@@ -44,7 +48,7 @@ cd bin
 - /home/ubuntu/venvs/myproject/bin 디렉터리로 이동한 다음 . activate 명령을 수행하면 가상 환경으로 진입할 수 있다.
 - 만약 가상 환경에서 벗어나려면 아무 곳에서나 deactivate 명령을 수행하면 된다.
 
-# wheel 패키지 설치하기(가상환경에서)
+## 2. wheel 패키지 설치하기(가상환경에서)
 
 (myproject) smh@smh-VM62:~/venvs/myproject/bin$ 
 
@@ -56,6 +60,23 @@ pip install email_validator
 pip install flask-markdown
 
 
-## 파이보 설치하기 : 깃허브 원격 저장소에서 서버로 내려 받기
+## 3. 파이보 설치하기 : 깃허브 원격 저장소에서 서버로 내려 받기
 
 cd ~/projects
+
+projects$ git clone https://github.com/digitalsmh/Flask-pybo.git myproject
+
+## 4. 파이보 실행하기
+
+export FLASK_APP=pybo
+export FLASK_DEBUG=true
+
+## 5. 데이터베이스 초기화
+cd myproject
+myproject$ flask db init
+myproject$ flask db migrate
+myproject$ flask db upgrade
+
+## 6. 플라스크 서버 실행하기
+
+ myproject$ flask run --host=0.0.0.0
