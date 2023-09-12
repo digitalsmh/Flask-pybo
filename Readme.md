@@ -70,6 +70,7 @@ projects$ git clone https://github.com/digitalsmh/Flask-pybo.git myproject
 
 export FLASK_APP=pybo
 export FLASK_DEBUG=true
+export APP_CONFIG_FILE=/home/smh/projects/myproject/config/production.py
 
 ## 5. 데이터베이스 초기화
 cd myproject
