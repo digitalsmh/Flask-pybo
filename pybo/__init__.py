@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy # ORM(object relational mapping)
 from sqlalchemy import MetaData
 from flaskext.markdown import Markdown
 
-import config
+# import config
 
 naming_convention = {
     "ix": 'ix_%(column_0_label)s',
