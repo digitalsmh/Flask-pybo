@@ -2,7 +2,7 @@
 cd ~/projects/myproject
 
 # 데이터베이스 파일, 디렉토리 삭제 
-del pybo.db   
+rm -rf pybo.db   
 rm -rf migrations
 
 # 데이터베이스 초기화   
