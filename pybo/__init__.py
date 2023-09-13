@@ -5,7 +5,7 @@ from flask_migrate import Migrate # ORM 적용을 위한 라이즈러리
 from flask_sqlalchemy import SQLAlchemy # ORM(object relational mapping)
 from sqlalchemy import MetaData
 from flaskext.markdown import Markdown
-
+from flask import Flask, render_template
 # import config
 
 naming_convention = {
@@ -15,7 +15,9 @@ naming_convention = {
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
     "pk": "pk_%(table_name)s"
 }
-
+# 404 오류 페이지
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 # ORM(object relational mapping)사용하기 위해 전역 변수 db, migrate 객체 생성.
@@ -28,8 +30,10 @@ def create_app():
     app = Flask(__name__)
     # Confugration. 
     app.config.from_envvar('APP_CONFIG_FILE') # app.config.from_object(config)
-
     
+    # 오류페이지
+    app.register_error_handler(404, page_not_found)
+
     # ORM(object relational mapping)
     db.init_app(app)
     if app.config['SQLALCHEMY_DATABASE_URI'].startswith("sqlite"):
