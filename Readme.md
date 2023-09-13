@@ -7,10 +7,12 @@ set FLASK_DEBUG=true
 flask run
 
 # 라이브러리 설치  
-pip install flask-migrate #  ORM 라이브러리   
+pip install flask-migrate   #  ORM 라이브러리   
 pip install flask-wtf   
 pip install email_validator   
-pip install flask-markdown   
+pip install flask-markdown  #  Markdown 라이브러리    
+pip install python-dotenv
+pip install pymysql         #  MySQL 라이브러리    
 
 # DB 관련
 
@@ -28,6 +30,36 @@ flask db downgrade # 이전 버전으로 DB downgrade
 - 현재 리비전을 최종 리비전으로 변경하기 : flask db stamp heads
 <br>
 <br>
+
+## 0. 환경 구성
+
+### Git
+[.gitignore]
+```
+.idea
+pybo.db
+*.pyc
+__pycache__
+migration
+logs
+.env.dev
+.env.pro
+```
+### .env by python-dotenv
+[.env.dev]
+```
+DB_NAME=flask_pybo
+DB_USER=dbmasteruser
+DB_HOST=ls-be78fd2cxxxxx614420dxxxxx6b156e2c9.cqlcyugj7ibs.ap-northeast-2.rds.amazonaws.com
+DB_PASSWORD==eKmx$xxymnxxwNCxxx$SX55*RdjKK1G&
+```
+[.env.pro]
+```
+DB_NAME=flask_pybo
+DB_USER=dbmasteruser
+DB_HOST=ls-be78fd2cxxxxx614420dxxxxx6b156e2c9.cqlcyugj7ibs.ap-northeast-2.rds.amazonaws.com
+DB_PASSWORD==eKmx$xxymnxxwNCxxx$SX55*RdjKK1G&
+```
 
 # 서버 구축 절차
 

@@ -1,9 +1,9 @@
 # myproject/pybo/__init__py
 
 from flask import Flask
-from flask_migrate import Migrate # ORM 적용을 위한 라이즈러리
+from flask_migrate import Migrate       # ORM 적용을 위한 라이즈러리
 from flask_sqlalchemy import SQLAlchemy # ORM(object relational mapping)
-from sqlalchemy import MetaData
+from sqlalchemy import MetaData         # 테이블 객체를 만들고 메타데이터에 담기 
 from flaskext.markdown import Markdown
 from flask import Flask, render_template
 # import config
@@ -15,15 +15,15 @@ naming_convention = {
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
     "pk": "pk_%(table_name)s"
 }
+
 # 404 오류 페이지
 def page_not_found(e):
     return render_template('404.html'), 404
 
-
 # ORM(object relational mapping)사용하기 위해 전역 변수 db, migrate 객체 생성.
 
 # db = SQLAlchemy()
-db = SQLAlchemy(metadata=MetaData(naming_convention=naming_convention))
+db = SQLAlchemy( metadata = MetaData(naming_convention = naming_convention) )
 migrate = Migrate()
 
 def create_app():
